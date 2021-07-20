@@ -1,6 +1,8 @@
 package Lab1;
 
 public class Problem1gcd {
+
+    // using brute force
     static int gcd(int m, int n) {
         int temp = m;
         if (m > n) {
@@ -20,15 +22,30 @@ public class Problem1gcd {
         return max;
     }
 
-    public static void main(String[] args) {
+    // using Eucladian algortihm
+    public static int gcdE(int m, int n) {
+        if (m == 0) return n;
+        if (n == 0) return m;
+        return gcdE(n, m % n);
+    }
 
+    public static void main(String[] args) {
+        System.out.println("\nUsing Normal algortihm: \n");
+        // for 20 & 24
         System.out.println("GCD is : " + gcd(24, 20));
         System.out.println("GCD is : " + gcd(20, 24));
+        // for 50 & 70
+        System.out.println("GCD is : " + gcd(50, 70));
+        System.out.println("GCD is : " + gcd(70, 50));
 
-        System.out.println("GCD is : " + gcd(98, 56));
-        System.out.println("GCD is : " + gcd(56, 98));
 
-        System.out.println("GCD is : " + gcd(13, 17));
-        System.out.println("GCD is : " + gcd(13, 15));
+        // using Eucladian algortihm
+        System.out.println("\nUsing Eucladian algortihm: \n");
+        // for 20 & 24
+        System.out.println("GCD is : " + gcdE(24, 20));
+        System.out.println("GCD is : " + gcdE(20, 24));
+        // for 98 & 56
+        System.out.println("GCD is : " + gcdE(98, 56));
+        System.out.println("GCD is : " + gcdE(56, 98));
     }
 }
