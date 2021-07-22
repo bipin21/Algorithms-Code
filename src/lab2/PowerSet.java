@@ -4,25 +4,21 @@ import java.util.*;
 
 public class PowerSet {
 
-    static ArrayList<ArrayList<Integer>> powerSet(ArrayList<Integer> X) {
-        ArrayList<ArrayList<Integer>> P = new ArrayList<>();
-        ArrayList<Integer> S = new ArrayList<>();
-        if(X.isEmpty()){
-            P.add(S);
-        }
+    static List<Set<Integer>> powerSet(List<Integer> X) {
+        List<Set<Integer>> P = new ArrayList<Set<Integer>>();
+        Set<Integer> S = new HashSet<>();
+        P.add(S);
         while (!X.isEmpty()) {
-            Integer f = X.get(0);
-            X.remove(0);
-            for (ArrayList<Integer> set : powerSet(X)) {
-                ArrayList<Integer> T = new ArrayList<>();
+            Integer f = X.remove(0);
+            int pSize = P.size();
+            for (int x = 0; x < pSize; x++) {
+                HashSet<Integer> T = new HashSet<>();
+                T.addAll(P.get(x));
                 T.add(f);
-                T.addAll(set);
-                P.add(set);
                 P.add(T);
             }
         }
         return P;
-
     }
 
 
