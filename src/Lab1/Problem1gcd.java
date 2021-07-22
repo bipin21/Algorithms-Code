@@ -24,9 +24,8 @@ public class Problem1gcd {
 
     // using Eucladian algortihm
     public static int gcdE(int m, int n) {
-        if (m == 0) return n;
-        if (n == 0) return m;
-        return gcdE(n, m % n);
+       if(m==0) return n;
+       return gcdE(n%m, m);
     }
 
     public static void main(String[] args) {
