@@ -33,5 +33,21 @@ public class PowerSet {
         System.out.println(powerSet(list));
     }
 
+    public static int[] countZeroAndOnes(int[] input) {
+        if (input == null || input.length == 0)
+            return new int[] { 0, 0 };
+        if (input[0] == 1)
+            return new int[] { 0, input.length };
+        if (input[input.length - 1] == 0)
+            return new int[] { input.length, 0 };
+        int[] result = new int[2];
+        for (int item : input) {
+            if (item == 0)
+                result[0] = result[0] + 1;
+            else
+                result[1] = result[1] + 1;
+        }
+        return result;
+    }
 
 }
