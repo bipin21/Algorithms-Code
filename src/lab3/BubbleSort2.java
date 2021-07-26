@@ -2,27 +2,28 @@ package lab3;
 
 import java.util.Arrays;
 
-// lab3 prob2
+// lab3 prob3
+public class BubbleSort2 {
 
-public class BubbleSortImporved1 {
-
-    static int[] arr = {12, 10, 9, 8, 4, 2, 1};
+    static int[] arr = {12, 10, 9, 4, 8, 2, 1};
 
     void sort() {
         int len = arr.length;
         boolean swaped = false;
         int c = 0;
+        int k = len;
         for (int i = 0; i < len; ++i) {
-            for (int j = 0; j < len - 1; ++j) {
+            for (int j = 0; j < k - 1; ++j) {
                 c++;
                 if (arr[j] > arr[j + 1]) {
                     swap(j, j + 1);
                     swaped = true;
                 }
             }
+            k = k - 1;
             if (swaped == false) break;
         }
-        System.out.println(c);
+        System.out.println("Cost " + c);
     }
 
     void swap(int i, int j) {
@@ -32,9 +33,8 @@ public class BubbleSortImporved1 {
     }
 
     public static void main(String[] args) {
-        BubbleSortImporved1 bs = new BubbleSortImporved1();
+        BubbleSort2 bs = new BubbleSort2();
         bs.sort();
         System.out.println(Arrays.toString(arr));
     }
-
 }

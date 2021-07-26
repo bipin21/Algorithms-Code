@@ -20,9 +20,10 @@ public class prob4 {
             System.out.println(i + " " + Arrays.toString(datas));
 
         }
-
         return datas;
     }
+
+    // As shown in sort method above, only one for loop is used. so worst case will be O(n).
 
     static void swap(int i, int j, int[] arr) {
         int temp = arr[i];
